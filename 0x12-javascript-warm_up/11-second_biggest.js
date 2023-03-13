@@ -1,12 +1,8 @@
 #!/usr/bin/node
-const max = 0;
-if (process.argv.length === 2) console.log(max);
-else if (process.argv.length === 3) console.log(max);
-else {
-  const sort = [];
-  process.argv.forEach((item, index) => {
-    sort.push(Number(item));
-  });
-  sort.sort((a, b) => a - b);
-  console.log(sort[sort.length - 2]);
-}
+const args = process.argv
+  .slice(2)
+  .map(arg => Number.parseInt(arg))
+  .sort((a, b) => b - a);
+const val = args.length < 2 ? 0 : args[1];
+
+console.log(val);
